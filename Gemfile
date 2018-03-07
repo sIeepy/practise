@@ -11,6 +11,7 @@ gem "jquery-rails"
 gem "sass-rails"
 gem "sqlite3"
 gem "uglifier"
+gem 'active_model_serializers'
 
 group :development do
   gem "better_errors"
@@ -30,8 +31,5 @@ group :development, :test do
   gem "rspec-rails"
   gem "rubocop"
   gem "simplecov"
-end
-
-group :test do
-  gem "shoulda-matchers"
+  gem 'shoulda-matchers'
 end
