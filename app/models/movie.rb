@@ -14,4 +14,6 @@
 
 class Movie < ApplicationRecord
   belongs_to :genre
+  
+  self.per_page = 10
 end
