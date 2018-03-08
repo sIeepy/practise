@@ -12,6 +12,7 @@ gem "sass-rails"
 gem "sqlite3"
 gem "uglifier"
 gem 'active_model_serializers'
+gem 'httparty'
 
 group :development do
   gem "better_errors"
