@@ -1,9 +1,9 @@
 %h1= @movie.title
 .jumbotron
   .col-md-6.col-md-offset-2.col-lg-2.col-lg-offset-0
-    = image_tag(MovieApiInfo.poster(@movie.title), size: "320x458")
+    = image_tag(MovieApiInfo.poster(@movie.title, @movie.cover), size: "320x458")
   .col-md-6.col-md-offset-2.col-lg-8.col-lg-offset-2
-    = MovieApiInfo.plot(@movie.title)
+    = MovieApiInfo.plot(@movie.title, @movie.description)
   %br
   %br
   .col-md-6.col-md-offset-2.col-lg-8.col-lg-offset-2

@@ -1,17 +1,17 @@
-ENV["RAILS_ENV"] ||= "test"
-require "spec_helper"
-require File.expand_path("../../config/environment", __FILE__)
-require "rspec/rails"
-require "pry"
-require "capybara/rails"
-require "simplecov"
-require "shoulda/matchers"
+ENV['RAILS_ENV'] ||= 'test'
+require 'spec_helper'
+require File.expand_path('../../config/environment', __FILE__)
+require 'rspec/rails'
+require 'pry'
+require 'capybara/rails'
+require 'simplecov'
+require 'shoulda/matchers'
 require 'devise'
-SimpleCov.start "rails"
+
+SimpleCov.start 'rails'
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
-
     with.test_framework :rspec
 
     with.library :active_record

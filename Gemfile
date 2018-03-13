@@ -34,4 +34,5 @@ group :development, :test do
   gem "rubocop"
   gem "simplecov"
   gem 'shoulda-matchers'
+  gem 'webmock'
 end
