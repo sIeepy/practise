@@ -6,6 +6,8 @@ class MovieDecorator < Draper::Decorator
   end
 
   def cover
-    MovieApiInfo.poster(object.movie.title)
+    "http://lorempixel.com/100/150/" +
+    %w(abstract nightlife transport).sample +
+    "?a=" + SecureRandom.uuid
   end
 end
