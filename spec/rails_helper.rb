@@ -7,6 +7,7 @@ require 'capybara/rails'
 require 'simplecov'
 require 'shoulda/matchers'
 require 'devise'
+require 'webmock/rspec'
 
 SimpleCov.start 'rails'
 
@@ -20,6 +21,18 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+RSpec.configure do |config|
+  config.before(:each) do
+    stub_request(:get, /pairguru-api.herokuapp.com/).with(
+        headers: {
+          'Accept': '*/*', 'User-Agent': 'Ruby'
+        }
+      ).to_return(
+        status: 200, body: File.read('spec/fixtures/1.json'), headers: {}
+      )
+  end
+end
+WebMock.disable_net_connect!(allow_localhost: true)
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 

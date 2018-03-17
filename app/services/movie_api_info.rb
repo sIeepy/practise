@@ -21,6 +21,7 @@ class MovieApiInfo
 
   def self.poster(title, cover)
     response = get("/#{title.gsub(' ', '%20')}")
+    binding.pry
     if response['message'] == "Couldn't find Movie"
       cover
     else
