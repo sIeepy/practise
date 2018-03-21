@@ -5,4 +5,8 @@ FactoryBot.define do
     released_at { Faker::Date.between(40.years.ago, Time.zone.today) }
     genre
   end
+
+  factory :movie_api, parent: :movie do
+    title 'Deadpool'
+  end
 end

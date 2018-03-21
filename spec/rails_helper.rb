@@ -23,23 +23,6 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
-RSpec.configure do |config|
-  config.before(:each) do
-    hash = { message: "Couldn't find Movie" }
-    stub_request(:get, /pairguru-api.herokuapp.com/).with(
-        headers: {
-          'Accept': '*/*',
-          'Accept-Encoding': 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-          'User-Agent': 'Ruby'
-        }
-      ).to_return(
-        status: 200,
-        body: hash.to_json,
-        headers: { 'Content-Type': 'application/json' }
-      )
-  end
-end
-
 WebMock.disable_net_connect!(allow_localhost: true)
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
