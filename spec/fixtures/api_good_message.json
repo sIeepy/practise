@@ -1,0 +1,14 @@
+{
+  "data":
+  {
+    "id":"10",
+    "type":"movie",
+    "attributes":
+    {
+      "title":"Deadpool",
+      "plot":"Fast-talking mercenary",
+      "rating":8.0,
+      "poster":"/deadpool.jpg"
+    }
+  }
+}

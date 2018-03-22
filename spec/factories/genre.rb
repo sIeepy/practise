@@ -4,7 +4,7 @@ FactoryBot.define do
 
     trait :with_movies do
       after(:create) do |genre|
-        create_list :movie, 1, genre: genre
+        create_list :movie, 5, genre: genre
       end
     end
 
