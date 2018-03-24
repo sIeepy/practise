@@ -9,9 +9,8 @@ require 'shoulda/matchers'
 require 'devise'
 require 'webmock/rspec'
 require 'json'
-
 SimpleCov.start 'rails'
-
+WebMock.disable_net_connect!(allow_localhost: true)
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :rspec
@@ -23,13 +22,11 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
-WebMock.disable_net_connect!(allow_localhost: true)
-
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
-
 RSpec.configure do |config|
+  config.include Features::SessionHelpers
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Warden::Test::Helpers, type: :request
 end
