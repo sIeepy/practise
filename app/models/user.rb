@@ -23,5 +23,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  validates :phone_number, format: { with: /\A[+]?\d+(?>[- .]\d+)*\z/, allow_nil: true }
+  has_many :comments
+
+  validates :phone_number,
+            format: { with: /\A[+]?\d+(?>[- .]\d+)*\z/, allow_nil: true }
 end
