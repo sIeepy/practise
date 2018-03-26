@@ -14,6 +14,6 @@
 
 class Movie < ApplicationRecord
   belongs_to :genre
-  
+  validates_with TitleBracketsValidator
   self.per_page = 10
 end
