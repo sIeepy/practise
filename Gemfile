@@ -14,6 +14,7 @@ gem 'sass-rails'
 gem 'sqlite3'
 gem 'uglifier'
 gem 'will_paginate'
+gem 'font-awesome-rails'
 
 group :development do
   gem 'better_errors'
