@@ -1,7 +1,7 @@
 %h1= @movie.title
 .jumbotron
   .col-md-6.col-md-offset-2.col-lg-2.col-lg-offset-0
-    = image_tag(MovieApiCover.poster(@movie.title, @movie.decorate.cover), size: "320x458")
+    = image_tag(MovieApiCover.poster(@movie.title, @movie.cover), size: "320x458")
   .col-md-6.col-md-offset-2.col-lg-8.col-lg-offset-2
     = MovieApiPlot.plot(@movie.title, @movie.description)
   %br
@@ -25,5 +25,19 @@
       %td= comment.decorate.user_name
       %td
         = link_to [@movie, comment], method: :delete do
+          %button.btn.btn-default
+            = fa_icon "times"
+
+    = render "rates/form", movie: @movie, rate: Rate.new(movie_id: @movie.id, user_id: current_user.id)
+%h3.text-center
+  Rates
+%table.table
+  %thead
+  %tbody
+    %tr
+    - @rates.each do |rate|
+      %td= rate.rating
+      %td
+        = link_to [@movie, rate], method: :delete do
           %button.btn.btn-default
             = fa_icon "times"
