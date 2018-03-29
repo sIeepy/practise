@@ -15,6 +15,7 @@
 class Movie < ApplicationRecord
   belongs_to :genre
   has_many :comments
+  has_many :rates
 
   validates_with TitleBracketsValidator
   self.per_page = 10
