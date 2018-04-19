@@ -13,10 +13,19 @@
 #
 
 class Movie < ApplicationRecord
-  belongs_to :genre
+  has_many :genre_movies
+  has_many :genres, through: :genre_movies
   has_many :comments
   has_many :rates
 
   validates_with TitleBracketsValidator
   self.per_page = 10
+
+  def self.search(search)
+    if search
+      where('title LIKE ?', "#{search}")
+    else
+      all
+    end
+  end
 end
